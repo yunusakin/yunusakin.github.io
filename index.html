@@ -4,22 +4,22 @@
   <meta charset="UTF-8" />
   <title>Yunus Akın | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
   <style>
     :root {
-      --main: #14c6ff;
-      --accent: #f7b42c;
-      --pink: #ff80b5;
-      --blue: #90cdf4;
-      --gray: #eee;
-      --text: #1a202c;
-      --desc: #535a67;
+      --main: #232629;
+      --light: #f7f8fa;
+      --gray: #bbb;
+      --accent: #14c6ff;
+      --hover: #97e6e1;
     }
     html, body {
-      background: #fff;
-      color: var(--text);
-      font-family: 'Montserrat', Arial, sans-serif;
+      background: var(--light);
+      color: var(--main);
+      font-family: 'Montserrat', 'Roboto', Arial, sans-serif;
       min-height: 100vh;
       margin: 0;
       padding: 0;
@@ -29,195 +29,96 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      height: 100vh;
       min-height: 100vh;
     }
-    .shapes {
-      position: fixed;
-      right: 3vw;
-      bottom: 3vw;
-      z-index: 0;
-      pointer-events: none;
-    }
-    .shape-triangle {
-      width: 120px;
-      height: 104px;
-      border: 5px solid var(--accent);
-      border-radius: 10px;
-      background: none;
-      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-      margin-bottom: 30px;
-      margin-left: 65px;
-      opacity: 0.18;
-    }
-    .shape-square {
-      width: 80px;
-      height: 80px;
-      border: 4px solid var(--blue);
-      border-radius: 18px;
-      margin-right: 35px;
-      background: none;
-      opacity: 0.22;
-      display: inline-block;
-    }
-    .shape-circle {
-      width: 80px;
-      height: 80px;
-      border: 4px solid var(--pink);
-      border-radius: 50%;
-      background: none;
-      display: inline-block;
-      opacity: 0.19;
-    }
-    .main-card {
-      z-index: 1;
-      position: relative;
-      margin-top: 4vw;
+    .center-card {
+      width: 95vw;
+      max-width: 510px;
+      margin: 0 auto;
+      text-align: center;
+      letter-spacing: 2.8px;
       background: #fff;
       border-radius: 2.1rem;
-      box-shadow: 0 4px 32px rgba(40, 96, 170, 0.08);
-      max-width: 390px;
-      width: 96vw;
-      padding: 2.5rem 2.2rem 2.8rem 2.2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      border: 1.5px solid var(--gray);
+      padding: 4.2rem 2.3rem 3.4rem 2.3rem;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.09);
+      border: 1.5px solid #f3f3f5;
+      position: relative;
     }
-    .logo-geo {
-      margin-bottom: 1.5rem;
-    }
-    .logo-geo .tri {
-      width: 34px; height: 34px;
-      background: var(--accent);
-      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-      display: inline-block;
-      margin-right: 5px;
-      vertical-align: bottom;
-    }
-    .logo-geo .sqr {
-      width: 20px; height: 20px;
-      background: var(--main);
-      border-radius: 6px;
-      display: inline-block;
-      margin-right: 5px;
-      vertical-align: middle;
-    }
-    .logo-geo .cir {
-      width: 18px; height: 18px;
-      background: var(--pink);
-      border-radius: 50%;
-      display: inline-block;
-      vertical-align: middle;
-    }
-    .avatar {
-      width: 88px; height: 88px;
-      margin: 0 auto 1.3rem auto;
-      border-radius: 50%;
-      overflow: hidden;
-      box-shadow: 0 4px 24px rgba(40,96,170,0.10);
-      background: #f8fafc;
-    }
-    .avatar img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      border-radius: 50%;
-    }
-    .main-card h1 {
-      margin: 0 0 0.65rem 0;
-      font-size: 2.1rem;
+    .bigname {
+      font-size: 2.4rem;
       font-weight: 800;
-      letter-spacing: 0.2px;
-    }
-    .desc {
-      color: var(--desc);
-      font-size: 1.04rem;
-      margin-bottom: 1.2rem;
-      font-weight: 500;
-      line-height: 1.7;
-    }
-    .social-row {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 1.4rem;
-      gap: 0.7rem;
-    }
-    .social-row a {
+      text-transform: uppercase;
+      letter-spacing: 6px;
+      margin: 0 0 1.1rem 0;
       color: var(--main);
-      font-size: 1.15rem;
-      width: 38px; height: 38px;
-      border-radius: 50%;
-      background: #f8fafc;
-      box-shadow: 0 1px 8px #e5eaf1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.15s, color 0.15s, transform 0.15s;
     }
-    .social-row a:hover {
-      background: var(--main);
-      color: #fff;
-      transform: translateY(-3px) scale(1.12);
+    .subtitle {
+      font-size: 1.03rem;
+      color: var(--gray);
+      font-weight: 400;
+      letter-spacing: 2.6px;
+      margin-bottom: 2.7rem;
+      text-transform: uppercase;
     }
-    .follow-me {
-      color: var(--main);
-      font-size: 0.92rem;
-      font-weight: 700;
-      margin-bottom: 0.7rem;
-      letter-spacing: 1.2px;
-    }
-    .hire-btn {
-      border: 1.5px solid var(--main);
+    .diamond {
+      margin: 2.1rem auto 1.6rem auto;
+      width: 20px;
+      height: 20px;
+      border: 1.5px solid #e0e0e0;
+      transform: rotate(45deg);
       background: #fff;
-      color: var(--main);
-      border-radius: 1.4rem;
-      font-weight: 700;
-      font-size: 1.02rem;
-      padding: 0.5rem 1.6rem;
-      margin-top: 0.7rem;
-      cursor: pointer;
-      box-shadow: 0 1px 4px #e5eaf1;
-      transition: background 0.16s, color 0.15s, border 0.15s, transform 0.12s;
+      opacity: 0.8;
     }
-    .hire-btn:hover {
-      background: var(--main);
-      color: #fff;
-      border: 1.5px solid var(--main);
-      transform: scale(1.05);
+    .links {
+      margin: 0 0 2.1rem 0;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    .links a {
+      color: var(--main);
+      opacity: 0.53;
+      font-size: 1.6rem;
+      transition: color 0.15s, opacity 0.17s, transform 0.13s;
+      text-decoration: none;
+    }
+    .links a:hover {
+      color: var(--accent);
+      opacity: 1;
+      transform: scale(1.18) translateY(-2px);
+    }
+    .bottomline {
+      font-size: 0.91rem;
+      color: #999;
+      letter-spacing: 2.4px;
+      margin-top: 0.7rem;
+      text-transform: uppercase;
+      font-family: 'Roboto', Arial, sans-serif;
+      font-weight: 300;
     }
     @media (max-width: 600px) {
-      .main-card { padding: 1.3rem 0.6rem 1.5rem 0.6rem; }
-      .shapes { display: none; }
+      .center-card { padding: 2.1rem 0.6rem 1.5rem 0.6rem; }
+      .bigname { font-size: 1.19rem; }
+      .subtitle { font-size: 0.93rem; }
+      .diamond { width: 14px; height: 14px; }
+      .links a { font-size: 1.13rem; }
     }
   </style>
 </head>
 <body>
-  <div class="main-card">
-    <div class="logo-geo">
-      <span class="tri"></span>
-      <span class="sqr"></span>
-      <span class="cir"></span>
-    </div>
-    <h1>Yunus Akın</h1>
-    <div class="desc">
-      Senior Software Engineer based in Istanbul, passionate about backend development, scalable architectures, and cloud solutions.<br>
-      <b>Email:</b> info.yunus.akin@gmail.com
-    </div>
-    <div class="follow-me">FOLLOW ME ON</div>
-    <div class="social-row">
-      <a href="https://linkedin.com/in/yunusakinn" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+  <div class="center-card">
+    <div class="bigname">YUNUS AKIN</div>
+    <div class="subtitle">SOFTWARE ENGINEER</div>
+    <div class="diamond"></div>
+    <div class="links">
       <a href="mailto:info.yunus.akin@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://linkedin.com/in/yunusakinn" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
       <a href="https://github.com/yunusakin" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
       <a href="https://medium.com/@yunusakinn" target="_blank" title="Medium"><i class="fab fa-medium"></i></a>
     </div>
-    <button class="hire-btn">Hire Me</button>
-  </div>
-  <!-- Decorative shapes in corner -->
-  <div class="shapes">
-    <div class="shape-triangle"></div>
-    <div>
-      <span class="shape-square"></span>
-      <span class="shape-circle"></span>
+    <div class="bottomline">
+      Istanbul, Turkey &nbsp;&nbsp;|&nbsp;&nbsp; info.yunus.akin@gmail.com
     </div>
   </div>
 </body>
