@@ -20,6 +20,7 @@
       --avatar-bg: #ffe08a;
       --shadow: rgba(20,198,255,0.07);
       --card-shadow: rgba(20,198,255,0.13);
+      --section-bg: #fff;
       --highlight-gradient: linear-gradient(90deg, var(--accent) 60%, #ffea94 100%);
     }
     body.dark {
@@ -33,6 +34,7 @@
       --avatar-bg: #3a3a3a;
       --shadow: rgba(20,198,255,0.10);
       --card-shadow: rgba(20,198,255,0.18);
+      --section-bg: #1d2128;
       --highlight-gradient: linear-gradient(90deg, var(--accent) 60%, #473914 100%);
     }
     html, body {
@@ -45,7 +47,10 @@
       transition: background 0.3s, color 0.3s;
     }
     * { box-sizing: border-box; }
+    a { color: var(--main); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
+    /* Navbar */
     .navbar {
       position: fixed;
       width: 100%;
@@ -82,6 +87,7 @@
       padding: 0.35rem 0.8rem;
       border-radius: 1.3rem;
       transition: background 0.18s, color 0.18s;
+      cursor: pointer;
     }
     nav a.active, nav a:hover {
       background: var(--main);
@@ -106,6 +112,7 @@
       background: var(--accent);
       color: var(--deep);
     }
+    /* Hero */
     .hero-section {
       display: flex;
       align-items: center;
@@ -200,43 +207,103 @@
       padding-top: 8vh;
     }
     .avatar-circle {
-      width: 210px; height: 210px;
+      width: 240px; height: 240px;
       border-radius: 50%;
       background: var(--avatar-bg);
       display: flex; align-items: center; justify-content: center;
       box-shadow: 0 4px 30px var(--card-shadow);
+      overflow: hidden;
       transition: background 0.3s;
     }
     .avatar-circle img {
-      width: 170px; height: 170px;
-      border-radius: 50%;
-      background: #fff;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      box-shadow: 0 2px 14px var(--shadow);
-      transition: background 0.3s;
+      background: #fff;
+      border-radius: 50%;
+      display: block;
     }
-    /* Particles BG */
-    #particles-js {
-      position: absolute;
-      width: 100vw;
-      height: 100vh;
-      left: 0; top: 0;
-      z-index: 1;
-      pointer-events: none;
+    /* Sections */
+    main {
+      max-width: 900px;
+      margin: 0 auto 2rem auto;
+      padding: 2.5rem 1.1rem 1rem 1.1rem;
+      border-radius: 1.3rem;
+      background: var(--section-bg);
+      box-shadow: 0 2px 32px var(--shadow);
+      z-index: 2;
+      position: relative;
+      margin-top: -90px;
     }
-    /* Responsive */
+    section {
+      margin-bottom: 2.7rem;
+    }
+    .section-title {
+      font-size: 1.27rem;
+      font-weight: 700;
+      color: var(--main);
+      letter-spacing: 1px;
+      margin-bottom: 1.1rem;
+      border-left: 5px solid var(--accent);
+      padding-left: 0.7rem;
+    }
+    .about-content, .skills-list, .education-content, .work-content, .exp-content, .contact-content {
+      font-size: 1.05rem;
+      color: var(--desc);
+      line-height: 1.7;
+    }
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem 1.5rem;
+      margin-bottom: 1.4rem;
+    }
+    .skills-list span {
+      background: var(--gray-bg);
+      color: var(--main);
+      border-radius: 1rem;
+      padding: 0.45rem 1.05rem;
+      font-weight: 600;
+      font-size: 0.97rem;
+      margin-bottom: 0.3rem;
+      box-shadow: 0 2px 8px var(--shadow);
+    }
+    .work-job, .exp-item, .edu-item, .contact-row {
+      margin-bottom: 1.4rem;
+    }
+    .work-job-title {
+      font-weight: 700;
+      color: var(--main);
+      font-size: 1.07rem;
+    }
+    .work-job-dates, .edu-dates {
+      font-size: 0.97rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-left: 0.7rem;
+    }
+    .work-job-desc, .exp-item-desc, .edu-degree, .contact-row-content {
+      margin-top: 0.2rem;
+      color: var(--desc);
+    }
+    .contact-row i {
+      color: var(--main);
+      width: 25px;
+      text-align: center;
+    }
     @media (max-width: 1000px) {
       .hero-section { flex-direction: column; padding: 5rem 1vw 1rem 1vw; }
       .hero-right { margin: 2rem 0 0 0; }
       .hero-left, .hero-right { padding-top: 2vh; }
+      main { margin-top: 2rem; }
     }
     @media (max-width: 700px) {
       .navbar-container { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
       nav { flex-wrap: wrap; gap: 0.7rem; }
       .hero-section { min-height: 92vh; }
       .hero-title { font-size: 2rem; }
-      .avatar-circle { width: 160px; height: 160px; }
-      .avatar-circle img { width: 120px; height: 120px; }
+      .avatar-circle { width: 180px; height: 180px; }
+      main { padding: 1rem 0.2rem; }
     }
     @media (max-width: 450px) {
       .navbar { padding: 0.5rem 0; }
@@ -244,7 +311,6 @@
       .hero-title { font-size: 1.38rem; }
       .about-btn { padding: 0.55rem 1.4rem; font-size: 0.97rem; }
       .avatar-circle { width: 110px; height: 110px; }
-      .avatar-circle img { width: 74px; height: 74px; }
     }
   </style>
 </head>
@@ -254,13 +320,13 @@
     <div class="navbar-container">
       <div class="logo">Yunus</div>
       <nav>
-        <a href="#" class="active">Home</a>
-        <a href="#">About</a>
-        <a href="#">Skills</a>
-        <a href="#">Education</a>
-        <a href="#">Work</a>
-        <a href="#">Experience</a>
-        <a href="#">Contact</a>
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#work">Work</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
       </nav>
       <button class="dark-toggle" id="darkToggle" title="Toggle dark mode">
         <i class="fas fa-moon"></i>
@@ -270,7 +336,7 @@
   <!-- Particles BG -->
   <div id="particles-js"></div>
   <!-- Hero Section -->
-  <section class="hero-section">
+  <section class="hero-section" id="home">
     <div class="hero-left">
       <div class="hero-title">Hi There,<br>I'm <span class="highlight">Yunus Akın</span></div>
       <div class="hero-desc">I Am Into <span class="highlight">Backend & Cloud Engineering</span></div>
@@ -284,13 +350,141 @@
     </div>
     <div class="hero-right">
       <div class="avatar-circle">
-        <img src="https://avatars.githubusercontent.com/u/22222022?v=4" alt="Yunus Akın Avatar">
+        <!-- Avatar image as "avatar.png" -->
+        <img src="avatar.png" alt="Yunus Akın Avatar">
       </div>
     </div>
   </section>
+  <main>
+    <!-- About -->
+    <section id="about">
+      <div class="section-title">About Me</div>
+      <div class="about-content">
+        Senior Software Engineer based in Istanbul, passionate about backend development, scalable architectures, and cloud solutions. My journey includes HR platforms (Idenfit), payment/fintech (İninal), and B2B platforms (Arçelik Global). I thrive on building robust systems, solving challenging problems, and collaborating with cross-functional teams.<br>
+        <strong>Email:</strong> info.yunus.akin@gmail.com
+      </div>
+    </section>
+    <!-- Skills -->
+    <section id="skills">
+      <div class="section-title">Skills</div>
+      <div class="skills-list">
+        <span>Java (8/11/21)</span>
+        <span>Spring / Spring Boot</span>
+        <span>Python</span>
+        <span>C#</span>
+        <span>JavaScript</span>
+        <span>Angular / AngularJS</span>
+        <span>Hibernate</span>
+        <span>PLSQL / SQL</span>
+        <span>MySQL / MSSQL / Oracle / MongoDB</span>
+        <span>Docker</span>
+        <span>AWS (ECS, CloudFormation)</span>
+        <span>Jenkins</span>
+        <span>Linux</span>
+        <span>Redis / Hazelcast</span>
+        <span>ELK Stack / Kibana / Dynatrace</span>
+        <span>GraphQL</span>
+        <span>Bitbucket / GitHub</span>
+        <span>RESTful APIs</span>
+        <span>Microservices</span>
+        <span>Agile / Scrum</span>
+      </div>
+    </section>
+    <!-- Education -->
+    <section id="education">
+      <div class="section-title">Education</div>
+      <div class="edu-item">
+        <strong>İskenderun Technical University</strong>
+        <span class="edu-dates">2010 - 2015</span>
+        <div class="edu-degree">Bachelor of Engineering (B.E.), Computer Engineering</div>
+      </div>
+    </section>
+    <!-- Work -->
+    <section id="work">
+      <div class="section-title">Work</div>
+      <div class="work-content">
+        <div class="work-job">
+          <div class="work-job-title">Idenfit <span class="work-job-dates">10.2023 – 06.2025</span></div>
+          <div class="work-job-desc">
+            Senior Software Engineer. Built backend infrastructure for HR SaaS, improved employee tracking, recruitment, and more. Projects: Collex (dynamic field management), AWS deployments.<br>
+            <strong>Tech:</strong> Java 21, Spring Boot, Hibernate, MySQL, MongoDB, Redis, RabbitMQ, GraphQL, AWS, Docker, ELK, CloudWatch.
+          </div>
+        </div>
+        <div class="work-job">
+          <div class="work-job-title">İninal <span class="work-job-dates">06.2021 – 09.2023</span></div>
+          <div class="work-job-desc">
+            Senior Software Engineer. Developed features for payment systems, expense tracking, and mobile UX. Projects: Onis Panel (business management), B2C/B2B microservices, Dockerized CI/CD.<br>
+            <strong>Tech:</strong> Java 8/11, Spring Boot, Hibernate, Angular 8, Hazelcast, Jenkins, Dynatrace, ELK, MSSQL, Oracle.
+          </div>
+        </div>
+        <div class="work-job">
+          <div class="work-job-title">Arçelik Global / Model Business Solutions <span class="work-job-dates">08.2017 – 06.2021</span></div>
+          <div class="work-job-desc">
+            Software Engineer. Built B2B modules for financial, logistics, sales, and risk management. <br>
+            <strong>Tech:</strong> Java 8, Spring, Oracle ADF, AngularJS, Hibernate, MSSQL, Oracle, TFS, ELK, Kibana.
+          </div>
+        </div>
+        <div class="work-job">
+          <div class="work-job-title">Batman Municipality <span class="work-job-dates">07.2014 – 08.2014</span></div>
+          <div class="work-job-desc">
+            IT Intern.
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Experience -->
+    <section id="experience">
+      <div class="section-title">Experience</div>
+      <div class="exp-content">
+        <div class="exp-item">
+          <strong>Collex Project (Idenfit)</strong>
+          <div class="exp-item-desc">Designed a backend for user-defined dynamic fields using Java, MongoDB, RabbitMQ. Deployed with AWS ECS/CloudFormation.</div>
+        </div>
+        <div class="exp-item">
+          <strong>Onis Panel (İninal)</strong>
+          <div class="exp-item-desc">Built a business account management interface with Spring Boot & Angular, distributed caching (Hazelcast), and CI/CD pipelines.</div>
+        </div>
+        <div class="exp-item">
+          <strong>B2C/B2B Microservices (İninal)</strong>
+          <div class="exp-item-desc">Engineered payment, logistics, risk, and sales modules as microservices. Technologies: Java, Jenkins, Hazelcast, Dynatrace.</div>
+        </div>
+        <div class="exp-item">
+          <strong>Dockerize CI/CD Pipeline (İninal)</strong>
+          <div class="exp-item-desc">Migrated microservices to Docker for more efficient CI/CD with Jenkins and Linux.</div>
+        </div>
+        <div class="exp-item">
+          <strong>Academic & Hobby Projects</strong>
+          <div class="exp-item-desc">Android/Bluetooth car, Android/WiFi robot, nurse scheduling with genetic algorithm (C#), accident prediction (C#), ray tracing (C++).</div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact -->
+    <section id="contact">
+      <div class="section-title">Contact</div>
+      <div class="contact-content">
+        <div class="contact-row"><i class="fas fa-envelope"></i> info.yunus.akin@gmail.com</div>
+        <div class="contact-row"><i class="fas fa-phone"></i> +90 545 540 08 23</div>
+        <div class="contact-row"><i class="fab fa-github"></i> <a href="https://github.com/yunusakin" target="_blank">github.com/yunusakin</a></div>
+        <div class="contact-row"><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/yunusakinn" target="_blank">linkedin.com/in/yunusakinn</a></div>
+        <div class="contact-row"><i class="fab fa-medium"></i> <a href="https://medium.com/@yunusakinn" target="_blank">medium.com/@yunusakinn</a></div>
+      </div>
+    </section>
+  </main>
   <!-- Particles.js Library (for BG animation) -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
+    // Navbar active state (scrollspy effect)
+    const navLinks = document.querySelectorAll('nav a');
+    window.addEventListener('scroll', () => {
+      let fromTop = window.scrollY + 90;
+      navLinks.forEach(link => {
+        let section = document.querySelector(link.getAttribute('href'));
+        if (section && section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+        }
+      });
+    });
     // Particles.js config for both light & dark
     function loadParticles(isDark) {
       particlesJS('particles-js', {
@@ -311,7 +505,6 @@
         "retina_detect": true
       });
     }
-
     // Dark mode toggle logic
     const toggleBtn = document.getElementById('darkToggle');
     const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
