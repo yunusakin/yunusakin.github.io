@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Yunus Akın | Portfolio</title>
+  <title>yunus akin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
@@ -50,22 +50,23 @@
       position: relative;
       letter-spacing: 2.2px;
     }
+    /* Apply lowercase and black to ALL text inside the card */
+    .center-card, .center-card * {
+      text-transform: lowercase !important;
+      color: #000 !important;
+    }
     .bigname {
       font-family: 'TrixieCyrPlain', 'Montserrat', Arial, sans-serif;
       font-size: 2.4rem;
       font-weight: 800;
-      text-transform: uppercase;
       letter-spacing: 6px;
       margin: 0 0 1.1rem 0;
-      color: var(--main);
     }
     .subtitle {
       font-size: 1.03rem;
-      color: var(--gray);
       font-weight: 400;
       letter-spacing: 2.6px;
       margin-bottom: 2.7rem;
-      text-transform: uppercase;
       font-family: 'Montserrat', Arial, sans-serif;
     }
     .diamond {
@@ -84,23 +85,19 @@
       gap: 1.5rem;
     }
     .links a {
-      color: var(--main);
       opacity: 0.68;
       font-size: 1.6rem;
       transition: color 0.15s, opacity 0.17s, transform 0.13s;
       text-decoration: none;
     }
     .links a:hover {
-      color: var(--accent);
       opacity: 1;
       transform: scale(1.18) translateY(-2px);
     }
     .bottomline {
       font-size: 0.91rem;
-      color: #999;
       letter-spacing: 2.4px;
       margin-top: 0.7rem;
-      text-transform: uppercase;
       font-family: 'Montserrat', Arial, sans-serif;
       font-weight: 300;
     }
@@ -115,8 +112,8 @@
 </head>
 <body>
   <div class="center-card">
-    <div class="bigname">Yunus Akın</div>
-    <div class="subtitle">Software Engineer</div>
+    <div class="bigname">yunus akin</div>
+    <div class="subtitle">software engineer</div>
     <div class="diamond"></div>
     <div class="links">
       <a href="mailto:info.yunus.akin@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
