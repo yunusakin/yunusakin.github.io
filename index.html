@@ -4,22 +4,27 @@
   <meta charset="UTF-8" />
   <title>Yunus Akın | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Montserrat:wght@700;400&display=swap" rel="stylesheet">
-  <!-- Font Awesome -->
+  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
   <style>
+    @font-face {
+      font-family: 'TrixieCyrPlain';
+      src: url('fonts/trixie-cyr-plain.woff2') format('woff2'),
+           url('fonts/trixie-cyr-plain.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
     :root {
       --main: #232629;
       --light: #f7f8fa;
       --gray: #bbb;
       --accent: #14c6ff;
-      --hover: #97e6e1;
     }
     html, body {
       background: var(--light);
       color: var(--main);
-      font-family: 'Special Elite', 'Montserrat', Arial, sans-serif;
+      font-family: 'TrixieCyrPlain', 'Montserrat', Arial, sans-serif;
       min-height: 100vh;
       margin: 0;
       padding: 0;
@@ -37,22 +42,22 @@
       max-width: 510px;
       margin: 0 auto;
       text-align: center;
-      letter-spacing: 2.8px;
       background: #fff;
       border-radius: 2.1rem;
       padding: 4.2rem 2.3rem 3.4rem 2.3rem;
       box-shadow: 0 8px 40px rgba(0,0,0,0.09);
       border: 1.5px solid #f3f3f5;
       position: relative;
+      letter-spacing: 2.2px;
     }
     .bigname {
+      font-family: 'TrixieCyrPlain', 'Montserrat', Arial, sans-serif;
       font-size: 2.4rem;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 6px;
       margin: 0 0 1.1rem 0;
       color: var(--main);
-      font-family: 'Special Elite', 'Montserrat', Arial, sans-serif;
     }
     .subtitle {
       font-size: 1.03rem;
@@ -61,6 +66,7 @@
       letter-spacing: 2.6px;
       margin-bottom: 2.7rem;
       text-transform: uppercase;
+      font-family: 'Montserrat', Arial, sans-serif;
     }
     .diamond {
       margin: 2.1rem auto 1.6rem auto;
@@ -79,7 +85,7 @@
     }
     .links a {
       color: var(--main);
-      opacity: 0.53;
+      opacity: 0.68;
       font-size: 1.6rem;
       transition: color 0.15s, opacity 0.17s, transform 0.13s;
       text-decoration: none;
@@ -95,7 +101,7 @@
       letter-spacing: 2.4px;
       margin-top: 0.7rem;
       text-transform: uppercase;
-      font-family: 'Roboto', Arial, sans-serif;
+      font-family: 'Montserrat', Arial, sans-serif;
       font-weight: 300;
     }
     @media (max-width: 600px) {
@@ -109,8 +115,8 @@
 </head>
 <body>
   <div class="center-card">
-    <div class="bigname">YUNUS AKIN</div>
-    <div class="subtitle">SOFTWARE ENGINEER</div>
+    <div class="bigname">Yunus Akın</div>
+    <div class="subtitle">Software Engineer</div>
     <div class="diamond"></div>
     <div class="links">
       <a href="mailto:info.yunus.akin@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
@@ -119,7 +125,7 @@
       <a href="https://medium.com/@yunusakinn" target="_blank" title="Medium"><i class="fab fa-medium"></i></a>
     </div>
     <div class="bottomline">
-      Istanbul, Turkey &nbsp;&nbsp;|&nbsp;&nbsp; info.yunus.akin@gmail.com
+      istanbul, turkey &nbsp;&nbsp;|&nbsp;&nbsp; info.yunus.akin@gmail.com
     </div>
   </div>
 </body>
